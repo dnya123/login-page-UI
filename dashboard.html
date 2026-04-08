@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 200px;
+  background: #333;
+  color: white;
+  height: 100vh;
+  padding: 20px;
+}
+
+.sidebar a {
+  display: block;
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.sidebar a:hover {
+  background: #555;
+}
+
+/* Main */
+.main {
+  flex: 1;
+  padding: 20px;
+}
+
+.cards {
+  display: flex;
+  gap: 10px;
+}
+
+.card {
+  background: #f4f4f4;
+  padding: 15px;
+  flex: 1;
+}
+
+/* Task */
+.task {
+  background: #fff;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+/* Modal */
+#modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+  <h2>Menu</h2>
+  <a href="#">Dashboard</a>
+  <a href="#">Tasks</a>
+  <a href="#">Logout</a>
+</div>
+
+<div class="main">
+  <h1>Welcome 👋</h1>
+
+  <div class="cards">
+    <div class="card">Tasks: 10</div>
+    <div class="card">Completed: 5</div>
+    <div class="card">Pending: 5</div>
+  </div>
+
+  <h2>Task List</h2>
+
+  <button onclick="openModal()">Add Task</button>
+
+  <div class="task">
+    <h3>Task 1</h3>
+    <p>Description here</p>
+    <span>Pending</span>
+  </div>
+
+  <div class="task">
+    <h3>Task 2</h3>
+    <p>Description here</p>
+    <span>Completed</span>
+  </div>
+
+</div>
+
+<!-- Modal -->
+<div id="modal">
+  <div class="modal-content">
+    <h2>Add Task</h2>
+    <input type="text" placeholder="Title"><br><br>
+    <input type="text" placeholder="Description"><br><br>
+    <button>Save</button>
+    <button onclick="closeModal()">Cancel</button>
+  </div>
+</div>
+
+<script>
+function openModal() {
+  document.getElementById("modal").style.display = "flex";
+}
+
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
+</script>
+
+</body>
+</html>

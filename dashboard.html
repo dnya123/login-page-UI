@@ -120,6 +120,14 @@ body {
 <script>
 let tasks = [];
 
+  // LOAD FROM STORAGE
+let storedTasks = localStorage.getItem("tasks");
+
+if (storedTasks) {
+  tasks = JSON.parse(storedTasks);
+  displayTasks();
+}
+
 function openModal() {
   document.getElementById("modal").style.display = "flex";
 }
@@ -146,6 +154,9 @@ function addTask() {
 
   tasks.push(task);
 
+  // SAVE HERE
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+  
   displayTasks();
   closeModal();
 
@@ -174,6 +185,7 @@ function displayTasks() {
 // Delete Task
 function deleteTask(index) {
   tasks.splice(index, 1);
+   localStorage.setItem("tasks", JSON.stringify(tasks));
   displayTasks();
 }
 </script>
